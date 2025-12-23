@@ -1,0 +1,28 @@
+# Maven
+target/
+*.war
+*.ear
+*.apk
+*.class
+
+# IntelliJ IDEA
+.idea/
+*.iml
+*.iws
+
+# Eclipse
+.classpath
+.project
+.settings/
+.springBeans
+
+# VS Code
+.vscode/
+
+# System
+thumbs.db
+.DS_Store
+
+# Logs
+*.log
+logs/
