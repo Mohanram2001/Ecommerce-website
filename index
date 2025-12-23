@@ -1,1 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FreshCart - Grocery Store</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+    <nav>
+        <a href="index.html" class="logo"><i class="fas fa-leaf"></i> FreshCart</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <span id="auth-links">
+                <a href="login.html">Login</a>
+                <a href="register.html">Register</a>
+            </span>
+            <span id="user-links" class="hidden">
+                <a href="cart.html"><i class="fas fa-shopping-cart"></i> Cart <span id="cart-count">(0)</span></a>
+                <a href="#" onclick="logout()">Logout</a>
+            </span>
+        </div>
+    </nav>
+
+    <div class="container">
+        <div class="hero">
+            <div>
+                <h1>Welcome to FreshCart</h1>
+                <p>Fresh groceries, fruits, and vegetables delivered to your door.</p>
+            </div>
+        </div>
+
+        <div class="filter-bar">
+            <input type="text" id="search-input" placeholder="Search products (e.g., Apple, Fruits)..."
+                onkeyup="if(event.key === 'Enter') searchProducts()">
+            <button class="btn" onclick="searchProducts()">Search</button>
+            <button class="btn btn-danger" onclick="clearSearch()" style="background: #95a5a6;">Clear</button>
+        </div>
+
+        <div class="grid" id="product-grid">
+            <!-- Products will be loaded here -->
+            <div class="text-center" style="grid-column: 1/-1;">Loading products...</div>
+        </div>
+    </div>
+
+    <script src="js/app.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            checkAuth();
+            loadProducts();
+            updateCartCount();
+        });
+    </script>
+</body>
+
+</html>
